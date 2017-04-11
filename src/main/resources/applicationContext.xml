@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+       		http://www.springframework.org/schema/context 
+       		http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<context:component-scan base-package="com.shim"></context:component-scan>
+
+	<!--<bean id="person" class="com.shim.spring.Person">-->
+		<!--<property name="name" value="shim" />-->
+		<!--<property name="age" value="24" />-->
+	<!--</bean>-->
+
+	<bean autowire="byType" id="person" class="com.shim.spring.Person" />
+
+	<bean id="person02" class="com.shim.spring.Person"
+		factory-method="getInstance">
+	</bean>
+
+	<bean id="kungfu" class="com.shim.spring.KungFu" >
+		<property name="name" value="Tai Ji" />
+	</bean>
+
+	<bean id="book" class="com.shim.spring.Book">
+		<property name="load">
+			<bean class="com.shim.spring.Book$Load">
+				<constructor-arg ref="book" />
+				<property name="length" value="10" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="book01" class="com.shim.spring.Book"
+		init-method="init" destroy-method="destroy" scope="prototype"/>
+
+
+</beans>

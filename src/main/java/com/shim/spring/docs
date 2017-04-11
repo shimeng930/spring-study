@@ -1,0 +1,4 @@
+refresh():
+    // 设置BeanFactory的后置处理
+    postProcessBeanFactory(beanFactory);
+    //
