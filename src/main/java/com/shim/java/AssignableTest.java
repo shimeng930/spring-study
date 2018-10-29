@@ -1,7 +1,5 @@
 package com.shim.java;
 
-import com.shim.spring.Person;
-
 import java.util.ArrayList;
 import java.util.List;
 
